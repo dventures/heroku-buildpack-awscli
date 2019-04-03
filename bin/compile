@@ -19,7 +19,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-ls $ENV_DIR
+cat $ENV_DIR/AWS_ACCESS_KEY_ID
 
 BUILDPACK_DIR="$(dirname $(dirname $0))"
 
