@@ -44,9 +44,6 @@ cat > "$BUILD_DIR/.profile.d/awscli.sh" <<'PROFILE'
 export PATH="$HOME/vendor/awscli/bin:$PATH"
 PROFILE
 
-#cleaning up...
-rm -rf /tmp/awscli*
-
 mkdir -p ~/.aws
 
 cat >> ~/.aws/credentials << EOF
@@ -60,5 +57,5 @@ cat >> ~/.aws/config << EOF
 region=$(cat $ENV_DIR/AWS_DEFAULT_REGION)
 EOF
 
-cat ~/.aws/config
-cat ~/.aws/credentials
+#cleaning up...
+rm -rf /tmp/awscli*
