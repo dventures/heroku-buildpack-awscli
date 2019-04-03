@@ -19,8 +19,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-cat $ENV_DIR/AWS_ACCESS_KEY_ID
-
 BUILDPACK_DIR="$(dirname $(dirname $0))"
 
 echo "-----> Installing AWS CLI"
@@ -53,13 +51,13 @@ mkdir -p ~/.aws
 
 cat >> ~/.aws/credentials << EOF
 [default]
-aws_access_key_id = $AWS_ACCESS_KEY_ID
-aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
+aws_access_key_id=$(cat $ENV_DIR/AWS_ACCESS_KEY_ID)
+aws_secret_access_key=$(cat $ENV_DIR/AWS_SECRET_ACCESS_KEY)
 EOF
 
 cat >> ~/.aws/config << EOF 
 [default]
-region = $AWS_DEFAULT_REGION
+region=$(cat $ENV_DIR/AWS_DEFAULT_REGION)
 EOF
 
 cat ~/.aws/config
