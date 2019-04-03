@@ -62,6 +62,3 @@ EOF
 
 cat ~/.aws/config
 cat ~/.aws/credentials
-
-aws --version
-aws configure list
